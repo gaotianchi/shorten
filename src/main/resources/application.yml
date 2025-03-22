@@ -5,6 +5,4 @@ spring:
     name: Shorten
   data:
     mongodb:
-      uri: mongodb://localhost:27017/shorten
-      username: root
-      password: pass
+      uri: ${SPRING_DATA_MONGODB_URI}
