@@ -72,14 +72,14 @@ Shorten 是一个高性能、高并发的短链接服务，旨在提供稳定可
 
 ### 1. 克隆项目
 
-```sh
+```bash
 git clone https://github.com/gaotianchi/shorten.git
 cd shorten
 ```
 
 ### 2. 启动服务（Docker Compose）
 
-```sh
+```bash
 docker-compose up -d
 ```
 
@@ -87,14 +87,14 @@ docker-compose up -d
 
 ### 1. **Docker 部署**
 
-```sh
+```bash
 docker build -t shorten .
 docker run -p 8080:8080 shorten
 ```
 
 ### 2. **Kubernetes 部署**
 
-```sh
+```bash
 kubectl apply -f k8s/
 ```
 
