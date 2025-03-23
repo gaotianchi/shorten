@@ -8,11 +8,19 @@ services:
   mongo-express:
     image: mongo-express:latest
     restart: always
+    depends_on:
+      - mongo
     ports:
       - "8081:8081"
     environment:
       ME_CONFIG_MONGODB_SERVER: mongo
       ME_CONFIG_BASICAUTH: false
+
+  redis:
+    image: redis:latest
+    restart: always
+    ports:
+      - "6379:6379"
 
   app:
     image: shorten:latest
@@ -22,7 +30,10 @@ services:
     restart: always
     depends_on:
       - mongo
+      - redis
     ports:
       - "8080:8080"
     environment:
       SPRING_DATA_MONGODB_URI: mongodb://mongo:27017/shorten
+      SPRING_REDIS_HOST: redis
+      SPRING_REDIS_PORT: 6379
