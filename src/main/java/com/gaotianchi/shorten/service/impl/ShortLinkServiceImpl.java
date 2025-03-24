@@ -2,8 +2,8 @@ package com.gaotianchi.shorten.service.impl;
 
 import com.gaotianchi.shorten.document.ShortLink;
 import com.gaotianchi.shorten.repository.ShortLinkRepository;
+import com.gaotianchi.shorten.service.CoreService;
 import com.gaotianchi.shorten.service.ShortLinkService;
-import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
@@ -17,20 +17,26 @@ import java.util.concurrent.TimeUnit;
 public class ShortLinkServiceImpl implements ShortLinkService {
 
     private final ShortLinkRepository shortLinkRepository;
+    private final CoreService coreService;
 
-    public ShortLinkServiceImpl(ShortLinkRepository shortLinkRepository) {
+    public ShortLinkServiceImpl(
+            ShortLinkRepository shortLinkRepository,
+            CoreService coreService
+    ) {
         this.shortLinkRepository = shortLinkRepository;
+        this.coreService = coreService;
     }
 
     @Override
     public ShortLink createShortLink(String originalUrl) {
-        String shortCode = generateShortCode();
+
         long expirationDate = Instant
                 .now()
                 .plusSeconds(TimeUnit.DAYS.toSeconds(30))
                 .getEpochSecond()
                 ;
 
+        String shortCode = coreService.generateShortCode();
         ShortLink shortLink = ShortLink
                 .builder()
                 .originalUrl(originalUrl)
@@ -45,13 +51,5 @@ public class ShortLinkServiceImpl implements ShortLinkService {
     @Override
     public ShortLink getShortLinkByShortCode(String shortCode) {
         return shortLinkRepository.findByShortCode(shortCode);
-    }
-
-    private String generateShortCode() {
-        String shortCode;
-        do {
-            shortCode = RandomStringUtils.randomAlphanumeric(6);
-        } while (shortLinkRepository.findByShortCode(shortCode) != null);
-        return shortCode;
     }
 }
