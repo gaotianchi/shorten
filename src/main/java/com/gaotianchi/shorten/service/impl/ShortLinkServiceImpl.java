@@ -50,6 +50,10 @@ public class ShortLinkServiceImpl implements ShortLinkService {
 
     @Override
     public ShortLink getShortLinkByShortCode(String shortCode) {
-        return shortLinkRepository.findByShortCode(shortCode);
+        ShortLink shortLink = shortLinkRepository.findByShortCode(shortCode);
+        if (shortLink == null) {
+            throw new RuntimeException("Short link not found");
+        }
+        return shortLink;
     }
 }
