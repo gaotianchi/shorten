@@ -38,6 +38,7 @@ public class ShortLinkServiceImpl implements ShortLinkService {
                 ;
 
         String shortCode = coreService.generateShortCode();
+
         ShortLink shortLink = ShortLink
                 .builder()
                 .originalUrl(originalUrl)

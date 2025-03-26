@@ -1,5 +1,6 @@
 package com.gaotianchi.shorten.service.impl;
 
+import com.gaotianchi.shorten.exception.GlobalIdException;
 import com.gaotianchi.shorten.service.CoreService;
 import com.gaotianchi.shorten.utils.Base62Converter;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -24,7 +25,7 @@ public class CoreServiceImpl implements CoreService {
         ValueOperations<String, String> ops = redisTemplate.opsForValue();
         Long id = ops.increment("shorten:Id");
         if (id == null) {
-            throw new RuntimeException("短链接代码生成失败");
+            throw new GlobalIdException("获取全局ID失败");
         }
         return Base62Converter.decToBase62(id);
     }
