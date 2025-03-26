@@ -11,4 +11,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ShortLinkRepository extends MongoRepository<ShortLink, String> {
     ShortLink findByShortCode(String shortCode);
+
+    void deleteShortLinkByShortCode(String shortCode);
 }

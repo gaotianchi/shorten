@@ -10,4 +10,6 @@ public interface ShortLinkService {
     ShortLink createShortLink(String originalUrl);
 
     ShortLink getShortLinkByShortCode(String shortCode);
+
+    void deleteShortLinkByShortCode(String shortCode);
 }

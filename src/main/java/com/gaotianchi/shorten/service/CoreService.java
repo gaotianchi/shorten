@@ -9,4 +9,6 @@ public interface CoreService {
     String generateShortCode();
 
     String getOriginalUrl(String shortCode);
+
+    void deleteLink(String shortCode);
 }

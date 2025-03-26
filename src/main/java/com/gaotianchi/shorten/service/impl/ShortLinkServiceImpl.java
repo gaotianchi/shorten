@@ -51,10 +51,16 @@ public class ShortLinkServiceImpl implements ShortLinkService {
 
     @Override
     public ShortLink getShortLinkByShortCode(String shortCode) {
+        String originalUrl = coreService.getOriginalUrl(shortCode);
         return ShortLink
                 .builder()
                 .shortCode(shortCode)
-                .originalUrl(coreService.getOriginalUrl(shortCode))
+                .originalUrl(originalUrl)
                 .build();
+    }
+
+    @Override
+    public void deleteShortLinkByShortCode(String shortCode) {
+        coreService.deleteLink(shortCode);
     }
 }

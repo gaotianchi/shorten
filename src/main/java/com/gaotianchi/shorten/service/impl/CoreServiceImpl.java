@@ -1,10 +1,8 @@
 package com.gaotianchi.shorten.service.impl;
 
-import com.gaotianchi.shorten.document.ShortLink;
-import com.gaotianchi.shorten.exception.DocumentNotFoundException;
 import com.gaotianchi.shorten.exception.GlobalIdException;
-import com.gaotianchi.shorten.repository.ShortLinkRepository;
 import com.gaotianchi.shorten.service.CoreService;
+import com.gaotianchi.shorten.service.LinkCacheService;
 import com.gaotianchi.shorten.utils.Base62Converter;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
@@ -18,14 +16,14 @@ import org.springframework.stereotype.Service;
 public class CoreServiceImpl implements CoreService {
 
     private final RedisTemplate<String, String> redisTemplate;
-    private final ShortLinkRepository shortLinkRepository;
+    private final LinkCacheService linkCacheService;
 
     public CoreServiceImpl(
             RedisTemplate<String, String> redisTemplate,
-            ShortLinkRepository shortLinkRepository
+            LinkCacheService linkCacheService
     ) {
         this.redisTemplate = redisTemplate;
-        this.shortLinkRepository = shortLinkRepository;
+        this.linkCacheService = linkCacheService;
     }
 
     @Override
@@ -40,10 +38,11 @@ public class CoreServiceImpl implements CoreService {
 
     @Override
     public String getOriginalUrl(String shortCode) {
-        ShortLink shortLink = shortLinkRepository.findByShortCode(shortCode);
-        if (shortLink == null) {
-            throw new DocumentNotFoundException("ShortLink");
-        }
-        return shortLink.getOriginalUrl();
+        return linkCacheService.getLink(shortCode);
+    }
+
+    @Override
+    public void deleteLink(String shortCode) {
+        linkCacheService.deleteLink(shortCode);
     }
 }

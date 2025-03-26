@@ -36,4 +36,14 @@ public class ShortLinkRest {
         ShortLink shortLink = shortLinkService.getShortLinkByShortCode(shortCode);
         return ResponseEntity.ok(shortLink);
     }
+
+    @DeleteMapping
+    public ResponseEntity<Void> deleteShortLinkByShortCode(
+            @RequestParam("code") String shortCode
+    ) {
+        shortLinkService.deleteShortLinkByShortCode(shortCode);
+        return ResponseEntity
+                .ok()
+                .build();
+    }
 }

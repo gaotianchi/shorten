@@ -3,6 +3,10 @@ server:
 spring:
   application:
     name: Shorten
+  cache:
+    redis:
+      cache-null-values: false
+      time-to-live: 3600s
   data:
     mongodb:
       uri: ${SPRING_DATA_MONGODB_URI}
