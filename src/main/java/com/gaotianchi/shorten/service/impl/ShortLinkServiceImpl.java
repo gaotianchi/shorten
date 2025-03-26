@@ -1,7 +1,6 @@
 package com.gaotianchi.shorten.service.impl;
 
 import com.gaotianchi.shorten.document.ShortLink;
-import com.gaotianchi.shorten.exception.DocumentNotFoundException;
 import com.gaotianchi.shorten.repository.ShortLinkRepository;
 import com.gaotianchi.shorten.service.CoreService;
 import com.gaotianchi.shorten.service.ShortLinkService;
@@ -52,10 +51,10 @@ public class ShortLinkServiceImpl implements ShortLinkService {
 
     @Override
     public ShortLink getShortLinkByShortCode(String shortCode) {
-        ShortLink shortLink = shortLinkRepository.findByShortCode(shortCode);
-        if (shortLink == null) {
-            throw new DocumentNotFoundException("ShortLink");
-        }
-        return shortLink;
+        return ShortLink
+                .builder()
+                .shortCode(shortCode)
+                .originalUrl(coreService.getOriginalUrl(shortCode))
+                .build();
     }
 }

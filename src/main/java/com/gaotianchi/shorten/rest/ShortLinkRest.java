@@ -15,7 +15,9 @@ public class ShortLinkRest {
 
     private final ShortLinkService shortLinkService;
 
-    public ShortLinkRest(ShortLinkService shortLinkService) {
+    public ShortLinkRest(
+            ShortLinkService shortLinkService
+    ) {
         this.shortLinkService = shortLinkService;
     }
 

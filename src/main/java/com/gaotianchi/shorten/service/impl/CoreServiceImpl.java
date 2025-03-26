@@ -1,6 +1,9 @@
 package com.gaotianchi.shorten.service.impl;
 
+import com.gaotianchi.shorten.document.ShortLink;
+import com.gaotianchi.shorten.exception.DocumentNotFoundException;
 import com.gaotianchi.shorten.exception.GlobalIdException;
+import com.gaotianchi.shorten.repository.ShortLinkRepository;
 import com.gaotianchi.shorten.service.CoreService;
 import com.gaotianchi.shorten.utils.Base62Converter;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -15,9 +18,14 @@ import org.springframework.stereotype.Service;
 public class CoreServiceImpl implements CoreService {
 
     private final RedisTemplate<String, String> redisTemplate;
+    private final ShortLinkRepository shortLinkRepository;
 
-    public CoreServiceImpl(RedisTemplate<String, String> redisTemplate) {
+    public CoreServiceImpl(
+            RedisTemplate<String, String> redisTemplate,
+            ShortLinkRepository shortLinkRepository
+    ) {
         this.redisTemplate = redisTemplate;
+        this.shortLinkRepository = shortLinkRepository;
     }
 
     @Override
@@ -32,6 +40,10 @@ public class CoreServiceImpl implements CoreService {
 
     @Override
     public String getOriginalUrl(String shortCode) {
-        return "";
+        ShortLink shortLink = shortLinkRepository.findByShortCode(shortCode);
+        if (shortLink == null) {
+            throw new DocumentNotFoundException("ShortLink");
+        }
+        return shortLink.getOriginalUrl();
     }
 }
