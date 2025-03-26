@@ -36,6 +36,6 @@ services:
     ports:
       - "8080:8080"
     environment:
-      SPRING_DATA_MONGODB_URI: mongodb://localhost:27017/shorten
-      SPRING_REDIS_HOST: localhost
+      SPRING_DATA_MONGODB_URI: mongodb://mongo:27017/shorten
+      SPRING_REDIS_HOST: redis
       SPRING_REDIS_PORT: 6379
