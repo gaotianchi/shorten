@@ -1,4 +1,4 @@
-package com.gaotianchi.shorten;
+package com.github.gaotianchi.shorten;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

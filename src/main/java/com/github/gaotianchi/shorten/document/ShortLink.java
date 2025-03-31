@@ -1,4 +1,4 @@
-package com.gaotianchi.shorten.document;
+package com.github.gaotianchi.shorten.document;
 
 import lombok.Builder;
 import lombok.Data;

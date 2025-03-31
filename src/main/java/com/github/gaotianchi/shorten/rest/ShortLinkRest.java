@@ -1,7 +1,7 @@
-package com.gaotianchi.shorten.rest;
+package com.github.gaotianchi.shorten.rest;
 
-import com.gaotianchi.shorten.document.ShortLink;
-import com.gaotianchi.shorten.service.ShortLinkService;
+import com.github.gaotianchi.shorten.document.ShortLink;
+import com.github.gaotianchi.shorten.service.ShortLinkService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

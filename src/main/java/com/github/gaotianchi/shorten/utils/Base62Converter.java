@@ -1,4 +1,4 @@
-package com.gaotianchi.shorten.utils;
+package com.github.gaotianchi.shorten.utils;
 
 
 import java.util.HashMap;

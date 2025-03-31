@@ -1,4 +1,4 @@
-package com.gaotianchi.shorten;
+package com.github.gaotianchi.shorten;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

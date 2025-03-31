@@ -7,7 +7,7 @@
             <env name="SPRING_REDIS_PORT" value="6379"/>
         </envs>
         <module name="shorten"/>
-        <option name="SPRING_BOOT_MAIN_CLASS" value="com.gaotianchi.shorten.ShortenApplication"/>
+        <option name="SPRING_BOOT_MAIN_CLASS" value="com.github.gaotianchi.shorten.ShortenApplication"/>
         <method v="2">
             <option name="Make" enabled="true"/>
         </method>

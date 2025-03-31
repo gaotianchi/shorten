@@ -1,9 +1,9 @@
-package com.gaotianchi.shorten.service.impl;
+package com.github.gaotianchi.shorten.service.impl;
 
-import com.gaotianchi.shorten.document.ShortLink;
-import com.gaotianchi.shorten.exception.DocumentNotFoundException;
-import com.gaotianchi.shorten.repository.ShortLinkRepository;
-import com.gaotianchi.shorten.service.LinkCacheService;
+import com.github.gaotianchi.shorten.document.ShortLink;
+import com.github.gaotianchi.shorten.exception.DocumentNotFoundException;
+import com.github.gaotianchi.shorten.repository.ShortLinkRepository;
+import com.github.gaotianchi.shorten.service.LinkCacheService;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;

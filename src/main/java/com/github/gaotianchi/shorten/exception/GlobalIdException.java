@@ -1,4 +1,4 @@
-package com.gaotianchi.shorten.exception;
+package com.github.gaotianchi.shorten.exception;
 
 /**
  * @author gaotianchi

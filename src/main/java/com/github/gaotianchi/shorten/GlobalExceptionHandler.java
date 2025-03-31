@@ -1,6 +1,6 @@
-package com.gaotianchi.shorten;
+package com.github.gaotianchi.shorten;
 
-import com.gaotianchi.shorten.exception.DocumentNotFoundException;
+import com.github.gaotianchi.shorten.exception.DocumentNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;

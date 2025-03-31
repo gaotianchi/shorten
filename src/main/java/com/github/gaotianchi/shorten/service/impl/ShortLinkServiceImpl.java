@@ -1,9 +1,9 @@
-package com.gaotianchi.shorten.service.impl;
+package com.github.gaotianchi.shorten.service.impl;
 
-import com.gaotianchi.shorten.document.ShortLink;
-import com.gaotianchi.shorten.repository.ShortLinkRepository;
-import com.gaotianchi.shorten.service.CoreService;
-import com.gaotianchi.shorten.service.ShortLinkService;
+import com.github.gaotianchi.shorten.document.ShortLink;
+import com.github.gaotianchi.shorten.repository.ShortLinkRepository;
+import com.github.gaotianchi.shorten.service.CoreService;
+import com.github.gaotianchi.shorten.service.ShortLinkService;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;

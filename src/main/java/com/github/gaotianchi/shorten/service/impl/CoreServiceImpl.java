@@ -1,9 +1,9 @@
-package com.gaotianchi.shorten.service.impl;
+package com.github.gaotianchi.shorten.service.impl;
 
-import com.gaotianchi.shorten.exception.GlobalIdException;
-import com.gaotianchi.shorten.service.CoreService;
-import com.gaotianchi.shorten.service.LinkCacheService;
-import com.gaotianchi.shorten.utils.Base62Converter;
+import com.github.gaotianchi.shorten.exception.GlobalIdException;
+import com.github.gaotianchi.shorten.service.CoreService;
+import com.github.gaotianchi.shorten.service.LinkCacheService;
+import com.github.gaotianchi.shorten.utils.Base62Converter;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Service;

@@ -1,4 +1,4 @@
-package com.gaotianchi.shorten.service;
+package com.github.gaotianchi.shorten.service;
 
 /**
  * @author gaotianchi

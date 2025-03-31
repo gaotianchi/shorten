@@ -1,6 +1,6 @@
-package com.gaotianchi.shorten.rest;
+package com.github.gaotianchi.shorten.rest;
 
-import com.gaotianchi.shorten.service.CoreService;
+import com.github.gaotianchi.shorten.service.CoreService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

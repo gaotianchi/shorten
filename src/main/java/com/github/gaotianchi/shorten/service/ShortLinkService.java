@@ -1,6 +1,6 @@
-package com.gaotianchi.shorten.service;
+package com.github.gaotianchi.shorten.service;
 
-import com.gaotianchi.shorten.document.ShortLink;
+import com.github.gaotianchi.shorten.document.ShortLink;
 
 /**
  * @author gaotianchi
