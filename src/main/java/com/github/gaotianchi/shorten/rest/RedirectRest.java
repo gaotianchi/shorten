@@ -17,17 +17,17 @@ import java.net.URISyntaxException;
 @RestController
 public class RedirectRest {
 
-    private final CoreService cacheableCoreService;
+    private final CoreService coreService;
 
-    public RedirectRest(CoreService cacheableCoreService) {
-        this.cacheableCoreService = cacheableCoreService;
+    public RedirectRest(CoreService coreService) {
+        this.coreService = coreService;
     }
 
     @GetMapping("{shortCode}")
     public ResponseEntity<Void> redirect(
             @PathVariable("shortCode") String shortCode
     ) throws URISyntaxException {
-        String originalUrl = cacheableCoreService.getOriginalUrl(shortCode);
+        String originalUrl = coreService.getOriginalUrl(shortCode);
         return ResponseEntity
                 .status(HttpStatus.FOUND)
                 .location(new URI(originalUrl))
