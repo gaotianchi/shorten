@@ -13,18 +13,28 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>shorten</name>
     <description>shorten</description>
-    <url/>
+    <url>https://github.com/gaotianchi/shorten</url>
+
     <licenses>
-        <license/>
+        <license>
+            <name>MIT License</name>
+            <url>https://opensource.org/licenses/MIT</url>
+            <distribution>repo</distribution>
+        </license>
     </licenses>
+
     <developers>
-        <developer/>
+        <developer>
+            <id>gaotianchi</id>
+            <name>Gao Tianchi</name>
+            <email>developers@gaotianchi.com</email>
+        </developer>
     </developers>
     <scm>
-        <connection/>
-        <developerConnection/>
-        <tag/>
-        <url/>
+        <connection>scm:git:git://github.com/gaotianchi/shorten.git</connection>
+        <developerConnection>scm:git:ssh://github.com/gaotianchi/shorten.git</developerConnection>
+        <tag>HEAD</tag>
+        <url>https://github.com/gaotianchi/shorten</url>
     </scm>
     <properties>
         <java.version>17</java.version>

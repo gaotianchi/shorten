@@ -2,4 +2,4 @@ spring:
   application:
     name: Shorten
   profiles:
-    active: ${SPRING_PROFILES_ACTIVE:v1.1}
+    active: ${SPRING_PROFILES_ACTIVE:v1.0}
