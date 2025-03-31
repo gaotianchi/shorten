@@ -5,7 +5,7 @@
             <settings>
                 <option name="composeProjectName" value="shorten-1-0"/>
                 <option name="envFilePath" value=""/>
-                <option name="sourceFilePath" value="compose/docker-compose-v1.0.yml"/>
+                <option name="sourceFilePath" value="docker/compose/docker-compose-v1.0.yml"/>
             </settings>
         </deployment>
         <method v="2"/>

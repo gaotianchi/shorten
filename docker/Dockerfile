@@ -2,8 +2,8 @@ FROM maven:3.9.6-eclipse-temurin-22 AS builder
 
 WORKDIR /app
 
-COPY pom.xml ./
-COPY src ./src
+COPY ../pom.xml ./
+COPY ../src ./src
 
 RUN --mount=type=cache,target=/root/.m2/repository \
     mvn clean package -DskipTests --no-transfer-progress
