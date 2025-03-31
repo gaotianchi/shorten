@@ -8,6 +8,7 @@ spring:
   data:
     mongodb:
       uri: ${SPRING_DATA_MONGODB_URI}
+      auto-index-creation: true
     redis:
       host: ${SPRING_REDIS_HOST:localhost}
       port: ${SPRING_REDIS_PORT:6379}
