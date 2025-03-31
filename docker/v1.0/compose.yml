@@ -6,23 +6,42 @@ services:
       MONGO_INITDB_DATABASE: shorten
     ports:
       - "27017:27017"
+    volumes:
+      - ./volumes/mongo:/data/db
+    networks:
+      - shorten-network
+    healthcheck:
+      test: [ "CMD", "mongosh", "--eval", "db.adminCommand('ping')" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   mongo-express:
     image: mongo-express:latest
     restart: always
     depends_on:
-      - mongo
+      mongo:
+        condition: service_healthy
     ports:
       - "8081:8081"
     environment:
       ME_CONFIG_MONGODB_SERVER: mongo
       ME_CONFIG_BASICAUTH: false
+    networks:
+      - shorten-network
 
   redis:
     image: redis:latest
     restart: always
+    command: [ "redis-server", "--appendonly", "yes" ]
     ports:
       - "6379:6379"
+    volumes:
+      - ./volumes/redis:/data
+    networks:
+      - shorten-network
+    healthcheck:
+      test: [ "CMD", "redis-cli", "ping" ]
 
   app:
     image: shorten:latest
@@ -31,8 +50,10 @@ services:
       dockerfile: docker/Dockerfile
     restart: always
     depends_on:
-      - mongo
-      - redis
+      mongo:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
     ports:
       - "8080:8080"
     environment:
@@ -40,3 +61,15 @@ services:
       SPRING_REDIS_HOST: redis
       SPRING_REDIS_PORT: 6379
       SPRING_PROFILES_ACTIVE: v1.0
+    networks:
+      - shorten-network
+
+volumes:
+  mongo-data:
+    driver: local
+  redis-data:
+    driver: local
+
+networks:
+  shorten-network:
+    driver: bridge
