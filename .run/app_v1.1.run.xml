@@ -1,10 +1,11 @@
 <component name="ProjectRunConfigurationManager">
-    <configuration default="false" name="ShortenApplication" type="SpringBootApplicationConfigurationType"
-                   factoryName="Spring Boot" nameIsGenerated="true">
+    <configuration default="false" name="app:v1.1" type="SpringBootApplicationConfigurationType"
+                   factoryName="Spring Boot">
         <envs>
             <env name="SPRING_DATA_MONGODB_URI" value="mongodb://localhost:27017/shorten"/>
             <env name="SPRING_REDIS_HOST" value="localhost"/>
             <env name="SPRING_REDIS_PORT" value="6379"/>
+            <env name="SPRING_PROFILES_ACTIVE" value="v1.1"/>
         </envs>
         <module name="shorten"/>
         <option name="SPRING_BOOT_MAIN_CLASS" value="com.github.gaotianchi.shorten.ShortenApplication"/>

@@ -2,7 +2,7 @@ package com.github.gaotianchi.shorten.service.impl;
 
 import com.github.gaotianchi.shorten.document.ShortLink;
 import com.github.gaotianchi.shorten.repository.ShortLinkRepository;
-import com.github.gaotianchi.shorten.service.CacheableCoreService;
+import com.github.gaotianchi.shorten.service.CoreService;
 import com.github.gaotianchi.shorten.service.ShortLinkService;
 import org.springframework.stereotype.Service;
 
@@ -17,14 +17,14 @@ import java.util.concurrent.TimeUnit;
 public class ShortLinkServiceImpl implements ShortLinkService {
 
     private final ShortLinkRepository shortLinkRepository;
-    private final CacheableCoreService cacheableCoreService;
+    private final CoreService coreService;
 
     public ShortLinkServiceImpl(
             ShortLinkRepository shortLinkRepository,
-            CacheableCoreService cacheableCoreService
+            CoreService coreService
     ) {
         this.shortLinkRepository = shortLinkRepository;
-        this.cacheableCoreService = cacheableCoreService;
+        this.coreService = coreService;
     }
 
     @Override
@@ -36,7 +36,7 @@ public class ShortLinkServiceImpl implements ShortLinkService {
                 .getEpochSecond()
                 ;
 
-        String shortCode = cacheableCoreService.generateShortCode();
+        String shortCode = coreService.generateShortCode();
 
         ShortLink shortLink = ShortLink
                 .builder()
@@ -51,7 +51,7 @@ public class ShortLinkServiceImpl implements ShortLinkService {
 
     @Override
     public ShortLink getShortLinkByShortCode(String shortCode) {
-        String originalUrl = cacheableCoreService.getOriginalUrl(shortCode);
+        String originalUrl = coreService.getOriginalUrl(shortCode);
         return ShortLink
                 .builder()
                 .shortCode(shortCode)
@@ -61,6 +61,6 @@ public class ShortLinkServiceImpl implements ShortLinkService {
 
     @Override
     public void deleteShortLinkByShortCode(String shortCode) {
-        cacheableCoreService.deleteLink(shortCode);
+        coreService.deleteLink(shortCode);
     }
 }

@@ -1,7 +1,7 @@
 package com.github.gaotianchi.shorten.service.impl;
 
 import com.github.gaotianchi.shorten.exception.GlobalIdException;
-import com.github.gaotianchi.shorten.service.CacheableCoreService;
+import com.github.gaotianchi.shorten.service.CoreService;
 import com.github.gaotianchi.shorten.service.LinkCacheService;
 import com.github.gaotianchi.shorten.utils.Base62Converter;
 import org.springframework.context.annotation.Profile;
@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
  **/
 @Profile("v1.1")
 @Service("coreService")
-public class CacheableCoreServiceImpl implements CacheableCoreService {
+public class CacheableCoreServiceImpl implements CoreService {
 
     private final RedisTemplate<String, String> redisTemplate;
     private final LinkCacheService linkCacheService;

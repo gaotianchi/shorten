@@ -1,6 +1,6 @@
 package com.github.gaotianchi.shorten.rest;
 
-import com.github.gaotianchi.shorten.service.CacheableCoreService;
+import com.github.gaotianchi.shorten.service.CoreService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,9 +17,9 @@ import java.net.URISyntaxException;
 @RestController
 public class RedirectRest {
 
-    private final CacheableCoreService cacheableCoreService;
+    private final CoreService cacheableCoreService;
 
-    public RedirectRest(CacheableCoreService cacheableCoreService) {
+    public RedirectRest(CoreService cacheableCoreService) {
         this.cacheableCoreService = cacheableCoreService;
     }
 
