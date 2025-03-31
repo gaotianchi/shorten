@@ -29,7 +29,7 @@ public class CacheableCoreServiceImpl implements CoreService {
     @Override
     public String generateShortCode() {
         ValueOperations<String, String> ops = redisTemplate.opsForValue();
-        Long id = ops.increment("shorten:Id");
+        Long id = ops.increment("global:id");
         if (id == null) {
             throw new GlobalIdException("获取全局ID失败");
         }
