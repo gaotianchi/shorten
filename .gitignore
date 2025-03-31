@@ -1,5 +1,5 @@
-docker/volumes/**/*
-!docker/volumes/**/.gitkeep
+docker/*/volumes/**/*
+!docker/*/volumes/**/.gitkeep
 .trash
 HELP.md
 .obsidian

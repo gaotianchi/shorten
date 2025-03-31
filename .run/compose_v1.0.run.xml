@@ -3,9 +3,9 @@
                    server-name="Docker">
         <deployment type="docker-compose.yml">
             <settings>
-                <option name="composeProjectName" value="shorten-1-0"/>
+                <option name="composeProjectName" value="shorten"/>
                 <option name="envFilePath" value=""/>
-                <option name="sourceFilePath" value="docker/compose/docker-compose-v1.0.yml"/>
+                <option name="sourceFilePath" value="docker/v1.0/compose.yml"/>
             </settings>
         </deployment>
         <method v="2"/>
