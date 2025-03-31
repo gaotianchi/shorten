@@ -1,19 +1,5 @@
-server:
-  port: 8080
 spring:
   application:
     name: Shorten
-  cache:
-    redis:
-      cache-null-values: false
-      time-to-live: 3600s
-  data:
-    mongodb:
-      uri: ${SPRING_DATA_MONGODB_URI}
-    redis:
-      host: ${SPRING_REDIS_HOST:localhost}
-      port: ${SPRING_REDIS_PORT:6379}
-      timeout: 2000ms
-logging:
-  level:
-    web: debug
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:v1.1}

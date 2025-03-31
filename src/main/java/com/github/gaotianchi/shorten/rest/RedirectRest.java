@@ -1,6 +1,6 @@
 package com.github.gaotianchi.shorten.rest;
 
-import com.github.gaotianchi.shorten.service.CoreService;
+import com.github.gaotianchi.shorten.service.CacheableCoreService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,17 +17,17 @@ import java.net.URISyntaxException;
 @RestController
 public class RedirectRest {
 
-    private final CoreService coreService;
+    private final CacheableCoreService cacheableCoreService;
 
-    public RedirectRest(CoreService coreService) {
-        this.coreService = coreService;
+    public RedirectRest(CacheableCoreService cacheableCoreService) {
+        this.cacheableCoreService = cacheableCoreService;
     }
 
     @GetMapping("{shortCode}")
     public ResponseEntity<Void> redirect(
             @PathVariable("shortCode") String shortCode
     ) throws URISyntaxException {
-        String originalUrl = coreService.getOriginalUrl(shortCode);
+        String originalUrl = cacheableCoreService.getOriginalUrl(shortCode);
         return ResponseEntity
                 .status(HttpStatus.FOUND)
                 .location(new URI(originalUrl))

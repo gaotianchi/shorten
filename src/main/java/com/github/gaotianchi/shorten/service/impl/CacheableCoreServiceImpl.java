@@ -1,9 +1,10 @@
 package com.github.gaotianchi.shorten.service.impl;
 
 import com.github.gaotianchi.shorten.exception.GlobalIdException;
-import com.github.gaotianchi.shorten.service.CoreService;
+import com.github.gaotianchi.shorten.service.CacheableCoreService;
 import com.github.gaotianchi.shorten.service.LinkCacheService;
 import com.github.gaotianchi.shorten.utils.Base62Converter;
+import org.springframework.context.annotation.Profile;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Service;
@@ -12,13 +13,14 @@ import org.springframework.stereotype.Service;
  * @author gaotianchi
  * @since 2025/3/24 下午3:51
  **/
+@Profile("v1.1")
 @Service("coreService")
-public class CoreServiceImpl implements CoreService {
+public class CacheableCoreServiceImpl implements CacheableCoreService {
 
     private final RedisTemplate<String, String> redisTemplate;
     private final LinkCacheService linkCacheService;
 
-    public CoreServiceImpl(
+    public CacheableCoreServiceImpl(
             RedisTemplate<String, String> redisTemplate,
             LinkCacheService linkCacheService
     ) {
