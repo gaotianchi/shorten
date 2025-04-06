@@ -13,8 +13,6 @@ spring:
       host: ${SPRING_REDIS_HOST:localhost}
       port: ${SPRING_REDIS_PORT:6379}
       timeout: 2000ms
-  profiles:
-    active: ${SPRING_PROFILES_ACTIVE:v1.0}
 logging:
   level:
     web: debug

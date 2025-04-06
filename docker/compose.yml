@@ -60,7 +60,6 @@ services:
       SPRING_DATA_MONGODB_URI: mongodb://mongo:27017/shorten
       SPRING_REDIS_HOST: redis
       SPRING_REDIS_PORT: 6379
-      SPRING_PROFILES_ACTIVE: v1.0
     networks:
       - shorten-network
 
