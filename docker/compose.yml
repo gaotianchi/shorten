@@ -46,8 +46,8 @@ services:
   app:
     image: shorten:latest
     build:
-      context: ../..
-      dockerfile: docker/Dockerfile
+      context: .
+      dockerfile: Dockerfile
     restart: always
     depends_on:
       mongo:
